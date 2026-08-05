@@ -33,7 +33,7 @@ public class User {
 	@OneToOne(mappedBy = "user",fetch = FetchType.LAZY)
     private Profile profile;
 	
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="role_id")
 	private Role role;
 }

@@ -3,6 +3,7 @@ package com.ecomm.entity;
 import java.util.List;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -25,7 +26,7 @@ public class Role {
 	
 	private String roleName;
 	
-	@OneToMany(mappedBy = "role")
+	@OneToMany(mappedBy = "role", fetch = FetchType.LAZY)
 	private List<User> users;
 	
 }

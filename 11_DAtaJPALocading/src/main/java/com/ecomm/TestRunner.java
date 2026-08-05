@@ -13,6 +13,8 @@ import com.ecomm.repo.ProfileRepo;
 import com.ecomm.repo.RoleRepository;
 import com.ecomm.repo.UserRepo;
 
+import jakarta.transaction.Transactional;
+
 @Component
 public class TestRunner implements CommandLineRunner {
 
@@ -27,23 +29,16 @@ public class TestRunner implements CommandLineRunner {
 	
 	Scanner sc=new Scanner(System.in);
 	
+	@Transactional
 	@Override
 	public void run(String... args) throws Exception {
 
-//	Profile p=prepo.findById(1).orElse(null);
-//	System.out.println(p.getName());
-//	System.out.println(p.getPhone());
-//	System.out.println(p.getUser().getEmail());
-//	User u=urepo.findById(1).orElse(null);
-//	System.out.println(u.getEmail());
-//	System.out.println(u.getPassword());
-//	System.out.println(u.getProfile().getName());
-		
 			addUser();
-		
 		
 	}
 	
+	
+	@Transactional
 	public void addUser() {
 		
 		//Collecting user data
@@ -65,11 +60,9 @@ public class TestRunner implements CommandLineRunner {
 		System.out.println("Enter the Phone:");
 		p.setPhone(sc.next());
 		p.setUser(u);
+		
+		int i=10/0;
 		p=prepo.save(p);
-		
-	
-		
-
 	}
 	
 	

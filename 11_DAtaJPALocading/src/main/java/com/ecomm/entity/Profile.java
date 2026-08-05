@@ -28,7 +28,7 @@ public class Profile {
 	
 	private String phone;
 	
-	@OneToOne
+	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="user_id")
 	private User user;
 }
