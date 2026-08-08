@@ -1,5 +1,7 @@
 package com.dcl.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,5 +32,12 @@ public class DemoController {
 		User u=uservice.addUser(user);
 		model.addAttribute("success", "Data add Successfully! User ID -"+u.getUserId());
 		return "addUser";
+	}
+	
+	@GetMapping("/getAll")
+	public String getAllUser(Model model) {
+		List<User> userList=uservice.getAllUser();
+		model.addAttribute("userList",userList);
+		return "viewUsers";
 	}
 }
