@@ -21,19 +21,19 @@
 				<div class="mb-3">
 				
 					<label>User Name:</label>
-					
+					<p th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="text-danger"></p>
 					<input type="text" class="form-control" th:field="*{username}">
 				</div>
 				
 				<div class="mb-3">
 					<label>User Mail:</label>
-					
+					<p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"></p>
 					<input type="email" class="form-control" th:field="*{email}">
 				</div>
 				
 				<div class="mb-3">
 					<label>User Phone:</label>
-					
+					<p th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}" class="text-danger"></p>
 					<input type="tel" class="form-control" th:field="*{phone}">
 				</div>
 				
