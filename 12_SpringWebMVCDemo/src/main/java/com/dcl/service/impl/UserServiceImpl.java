@@ -15,9 +15,14 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserRepo urepo;
 	
+	@Autowired
+	private EmailService eservice;
+	
 	@Override
 	public User addUser(User user) {
-		return urepo.save(user);
+		User u=urepo.save(user);
+		eservice.sendMail(u.getUsername(), u.getEmail());
+		return u;
 	}
 
 	@Override
