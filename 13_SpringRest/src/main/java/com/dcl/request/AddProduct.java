@@ -3,7 +3,7 @@ package com.dcl.request;
 import lombok.Data;
 
 @Data
-public class UpdateRequest {
+public class AddProduct {
 
 	private String productName;
 	
